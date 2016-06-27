@@ -1,0 +1,84 @@
+﻿/*--操作符
+       相等 Same 
+       不等于 Different
+       大于 GreaterThan
+       小于 LessThan 
+       大于等于 GreaterThanAndSame
+       小于等于 LessThanAndSame
+       在某个范围内 Between .. AND ..
+       不在某个范围内 NOT Between .. AND ..
+       LIKE Possible
+       NOT LIKE    NotPossible
+       IN
+        
+
+            --运算符
+            AND Ampersand
+            OR  Maybe
+
+                 --优先级
+                  括号 Block 
+
+  --排序
+    ORDER BY    OrderByDESC:"列名" 或 OrderByASC:"列名"
+    
+  --高级
+  返回记录数目 LIMIT       Limit:""
+      
+  --JOIN
+     I:INNER JOIN,
+     L:LEFT JOIN,
+     R:RIGHT JOIN,
+     F:FULL JOIN,
+     W:WHERE
+     
+*/
+
+
+//条件
+
+{
+  "Ampersand": {
+    "Same": {
+      "username": "waitaction",
+      "password": "123456",
+      "type": 1
+    },
+    "Different": {
+      "task_number": 2255
+
+    },
+    "Block": {
+      "GreaterThan": {
+        "point": 123
+      },
+
+      "LessThan": {
+        "maney": 10
+      }
+    }
+  },
+
+  "Order": {
+    "Company": "DESC",
+    "OrderNumber": "ASC"
+  },
+
+  "I": {
+    "user": {
+      "username": true,
+      "password": true
+    },
+    "task": true
+  },
+
+  "Entity": {
+    "user": {
+      "username": "xiaoming",
+      "password": "123456"
+    }
+
+  }
+}
+
+//
