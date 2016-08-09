@@ -1,22 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Dynamic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Json2Sql.ConditionModel;
 using Json2Sql.ModelEx;
-using Newtonsoft.Json;
 
 namespace Json2Sql.Test
 {
@@ -86,16 +72,12 @@ namespace Json2Sql.Test
             {
                 try
                 {
-
                     var jsonEntity = JsonText.Text.ToJsonObject();
-            
                     var sqlString = new SqlString(jsonEntity);
-                    sqlString.MySqlConnection = new MySql.Data.MySqlClient.MySqlConnection("server=127.0.0.1;user id=root;password=123456;persistsecurityinfo=True;database=information_schema");
-                    sqlString.DataBaseName = "jianqu";
+                    //  sqlString.MySqlConnection = new MySql.Data.MySqlClient.MySqlConnection("server=127.0.0.1;user id=root;password=123456abc;persistsecurityinfo=True;database=one_note");
+                    sqlString.MySqlConnection = new MySql.Data.MySqlClient.MySqlConnection(ConnectionText.Text);
                     var str = sqlString.GetQuerySql();
                     SqlText.Text = str;
-
-
                 }
                 catch (Exception ex)
                 {

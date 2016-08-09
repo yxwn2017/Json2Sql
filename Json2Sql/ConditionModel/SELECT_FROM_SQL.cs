@@ -213,14 +213,16 @@ namespace Json2Sql.ConditionModel
                     var sqlCmd = new MySql.Data.MySqlClient.MySqlCommand
                     {
                         Connection = MySqlConnection,
+                        //CommandText =
+                        //    $"SELECT `COLUMN_NAME` FROM `COLUMNS` WHERE TABLE_SCHEMA='{DataBaseName}' AND TABLE_NAME='{tableName}';"
                         CommandText =
-                            $"SELECT `COLUMN_NAME` FROM `COLUMNS` WHERE TABLE_SCHEMA='{DataBaseName}' AND TABLE_NAME='{tableName}';"
+                            $"SELECT * FROM `{tableName}`  LIMIT 1;"
                     };
                     var dt = new DataTable();
                     dt.Load(sqlCmd.ExecuteReader());
-                    foreach (DataRow row in dt.Rows)
+                    foreach (DataColumn column in dt.Columns)
                     {
-                        columnDic.Add(row["COLUMN_NAME"].ToString(), true);
+                        columnDic.Add(column.ToString(), true);
                     }
                     newDic[item.Key] = columnDic;
                 }
@@ -368,13 +370,13 @@ namespace Json2Sql.ConditionModel
                             var isFullColumns = o2.Value as bool?;
                             if (isFullColumns == true)
                             {
-                                if (MySqlConnection != null && !string.IsNullOrEmpty(DataBaseName))
-                                {
-                                }
-                                else
-                                {
-                                    top.Append(" *,");
-                                }
+                                //if (MySqlConnection != null && !string.IsNullOrEmpty(DataBaseName))
+                                //{
+                                //}
+                                //else
+                                //{
+                                //    top.Append(" *,");
+                                //}
                                 break;
                             }
                         }

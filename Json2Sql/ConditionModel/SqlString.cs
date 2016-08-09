@@ -9,7 +9,7 @@ namespace Json2Sql.ConditionModel
     {
         #region 初始及设置
         public MySql.Data.MySqlClient.MySqlConnection MySqlConnection { get; set; }
-        public string DataBaseName { get; set; }
+        //public string DataBaseName { get; set; }
         public Dictionary<string, object> SqlDictionary { get; set; }
         public SqlString(Dictionary<string, object> sqlDictionary)
         {
