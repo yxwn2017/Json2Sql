@@ -1,9 +1,7 @@
 ﻿{
   "Entity": {
     "Main": {
-      "note_details": {
-        "id": true
-      }
+      "note_details": true
     }
   },
   "Condition": {
