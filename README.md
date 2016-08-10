@@ -31,7 +31,7 @@ var jsonEntity = new JsonEntityToSql("server=127.0.0.1;user id=root;password=123
 var sql = jsonEntity.Json2SelectSql("{\"Entity\":{\"Main\":{\"note_details\":true}},\"Condition\":{\"Equ\":{\"note_details\":{\"title\":\"hello,world.\"}}}}");
 ```
 
-一、SQL操作符对应的JSON变量：
+SQL操作符对应的JSON变量：
 
 
 
@@ -57,3 +57,36 @@ LEFT JOIN	|LinkLeft
 RIGHT JOIN|	LinkRight
 
 由于工作时间的缘故，目前还没有时间，更复杂的JSON转SQL文档，以后有时间会发布出来。
+下面是较复杂的json示例
+``` json
+{
+  "Entity": {
+    "Main": {
+      "note_details": {
+        "id": true,
+        "title": true,
+        "content": "descript"
+      },
+      "Link": {
+        "user": {
+          "realname": true
+        }
+      }
+    },
+    "LinkCondition": {
+      "Equ": {
+        "note_details": {
+          "user_id": "$`user`.id"
+        }
+      }
+    }
+  },
+  "Condition": {
+    "Equ": {
+      "note_details": {
+        "title": "日记标题"
+      }
+    }
+  }
+}
+```

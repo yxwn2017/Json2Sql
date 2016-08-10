@@ -1,7 +1,23 @@
 ﻿{
   "Entity": {
     "Main": {
-      "note_details": true
+      "note_details": {
+        "id": true,
+        "title": true,
+        "content": "descript"
+      },
+      "Link": {
+        "user": {
+          "realname": true
+        }
+      }
+    },
+    "LinkCondition": {
+      "Equ": {
+        "note_details": {
+          "user_id": "$`user`.id"
+        }
+      }
     }
   },
   "Condition": {

@@ -11,7 +11,7 @@ namespace Json2Sql
 
 
         /// <summary>
-        /// 初始化一个Json实体转为MySql的实例。注：数据库必须开放information_schema的读权限，否则会导致转换失败。
+        /// 初始化一个Json实体转为MySql的实例。
         /// </summary>
         /// <param name="dbServerIP">数据库IP地址</param>
         /// <param name="dbUserId">数据库用户名</param>
